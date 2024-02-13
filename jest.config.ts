@@ -5,11 +5,12 @@ export default {
     testEnvironment: "jsdom",
     transform: {
         "^.+\\.tsx?$": "ts-jest",
+        ".+\\.(css|styl|less|sass|scss)$": "jest-css-modules-transform",
         // process `*.tsx` files with `ts-jest`
     },
     moduleNameMapper: {
         "\\.(gif|ttf|eot|svg|png)$": "<rootDir>/config/jest/fileMock.ts",
-        "^.+\\.(css|less|scss|sass)$": "<rootDir>/config/jest/styleMock.ts",
+        // "^.+\\.(css|less|scss|sass)$": "<rootDir>/config/jest/styleMock.ts",
     },
     // setupFilesAfterEnv: ["./config/jest/setupTests.ts"],
     moduleFileExtensions: [
