@@ -66,7 +66,7 @@ function App() {
                     />
                 </div>
                 {error && <p className="text-danger">{error}</p>}
-                <button type="submit" className="btn btn-primary" onClick={(e) => handleClick(e)}>
+                <button type="submit" name="submit" className="btn btn-primary" onClick={(e) => handleClick(e)}>
                     Submit
                 </button>
             </form>
