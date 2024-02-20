@@ -28,4 +28,5 @@ export default {
         "node",
     ],
     modulePaths: ["<rootDir>/src"],
+    setupFilesAfterEnv: ["@testing-library/jest-dom"],
 };

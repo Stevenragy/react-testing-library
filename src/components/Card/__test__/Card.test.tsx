@@ -3,8 +3,9 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Card from "../Card";
 import userEvent from "@testing-library/user-event";
+import { CardProps } from "../types";
 
-const cardProps = {
+const cardProps: CardProps = {
     name: "Sydney",
     phone: "11-111-1111",
     email: "steven@gmail.com",
@@ -13,6 +14,9 @@ const cardProps = {
         alt: "Boss Cat",
     },
     favoured: false,
+    index: 0,
+    color: "black",
+    gender: "female",
 };
 describe("Card", () => {
     beforeEach(() => {
