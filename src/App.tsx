@@ -1,75 +1,20 @@
-import { useState } from "react";
-import { MouseEvent } from "react";
 import "./App.css";
+import Card from "./components/Card/Card";
 
-import validator from "validator";
 function App() {
-    const [signupInput, setSignInput] = useState({
-        email: "",
-        password: "",
-        confirmPassword: "",
-    });
-
-    const [error, setError] = useState("");
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const handleChange = (e: any) => {
-        setSignInput({
-            ...signupInput,
-            [e.target.name]: e.target.value,
-        });
-    };
-
-    const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault();
-        if (!validator.isEmail(signupInput.email)) {
-            return setError("The email you input is invalid.");
-        } else if (signupInput.password.length < 5) {
-            return setError("The password you entered should contain 5 or more characters.");
-        } else if (signupInput.password !== signupInput.confirmPassword) {
-            return setError("The passwords don't match. Try again.");
-        }
+    const cardProps = {
+        name: "Sydney",
+        phone: "11-111-1111",
+        email: "steven@gmail.com",
+        image: {
+            url: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2F0fGVufDB8fDB8fHww",
+            alt: "Boss Cat",
+        },
+        favoured: false,
     };
     return (
         <div className="container">
-            <form>
-                <div className="mb-3">
-                    <label htmlFor="email" className="form-label">
-                        Email address
-                    </label>
-                    <input type="email" id="email" name="email" className="form-control" value={signupInput.email} onChange={handleChange} />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="password" className="form-label">
-                        Password
-                    </label>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        className="form-control"
-                        value={signupInput.password}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="confirm-password" className="form-label">
-                        Confirm Password
-                    </label>
-                    <input
-                        type="password"
-                        id="confirm-password"
-                        name="confirmPassword"
-                        className="form-control"
-                        value={signupInput.confirmPassword}
-                        onChange={handleChange}
-                    />
-                </div>
-                {error && <p className="text-danger">{error}</p>}
-                <button type="submit" name="submit" className="btn btn-primary" onClick={(e) => handleClick(e)}>
-                    Submit
-                </button>
-            </form>
+            <Card {...cardProps} />
         </div>
     );
 }
