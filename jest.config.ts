@@ -2,7 +2,7 @@
 export default {
     rootDir: "src",
     preset: "ts-jest",
-    testEnvironment: "jsdom",
+    testEnvironment: "jest-environment-jsdom",
     transform: {
         "^.+\\.tsx?$": "ts-jest",
         ".+\\.(css|styl|less|sass|scss)$": "jest-css-modules-transform",
@@ -28,5 +28,6 @@ export default {
         "node",
     ],
     modulePaths: ["<rootDir>/src"],
-    setupFilesAfterEnv: ["@testing-library/jest-dom"],
+    setupFilesAfterEnv: ["../jest.setup.ts"],
+    resolver: `./jest-config/resolver.cjs`,
 };
